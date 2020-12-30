@@ -39,12 +39,8 @@ render() {
       <Layout style={{ padding: '0 10px 10px' }}>
         <BreadcCumbs source={this.state.BreadcCumbsData}></BreadcCumbs>
         <Content
-          className="site-layout-background"
-          style={{
-            padding: 24,
-            margin: 0,
-            minHeight: 280,
-          }}
+          className="content"
+          key={this.props.location.key}
         >
           {
             <Router>

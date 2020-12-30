@@ -26,7 +26,7 @@ class Login extends Component {
           };
           const onFinish = (values) => {
             console.log('Success:', values);
-            this.props.history.push("/childMoudle");
+            this.props.history.push("/contentMoudle/home");
           };
         
           const onFinishFailed = (errorInfo) => {
