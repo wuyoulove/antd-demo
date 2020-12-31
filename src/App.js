@@ -1,6 +1,7 @@
 
 import routes from './route.js'
-// import './App.less';
+// import './assets/css/red.less';
+// import './assets/css/blue.less';
 import './assets/css/index.less'
 import {
     BrowserRouter as Router,
@@ -9,6 +10,8 @@ import {
   } from 'react-router-dom';
 
 function App() {
+  let themeColor = 'blue'
+  require([`./assets/css/${themeColor}.less`], function(list){});
   return (
     <Router>
         <Switch>
@@ -17,7 +20,7 @@ function App() {
                     <Route exact={route.exact} path={route.path} component={route.component} key={route.path}></Route>))
             }
         </Switch>
-            </Router>
+    </Router>
   );
 }
 

@@ -4,7 +4,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import { Layout } from 'antd';
+import { Layout, Button } from 'antd';
 import './style/index.less'
 import routes from './routes.js'
 import HeaderMoudle from '../../components/HeaderMoudle/index.js'
@@ -31,6 +31,7 @@ render() {
     <Layout>
     <Header className="header">
       <HeaderMoudle headerData={this.state.headerData}></HeaderMoudle>
+      <div className="change-theme" />
     </Header>
     <Layout>
       <Sider width={256} collapsible collapsed={collapsed} onCollapse={this.onCollapse} className="site-layout-background">
