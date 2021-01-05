@@ -4,8 +4,9 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import { Layout, Button } from 'antd';
+import { Layout } from 'antd';
 import './style/index.less'
+import store from '@/store/index.js'
 import routes from './routes.js'
 import HeaderMoudle from '../../components/HeaderMoudle/index.js'
 import SideMenu from '@/components/SideMenu/index.js'
@@ -19,19 +20,24 @@ class ChildMoudle extends Component {
       headerData:['nav1','nav2','nav3'],
       BreadcCumbsData:['Home','List','App'],
       collapsed: false,
+      themeColor:store.getState().themeColor,
     }
 }
   onCollapse = collapsed => {
     this.setState({ collapsed });
   };
+  changeTheme(){
+    this.setState(state => ({
+      themeColor: state.themeColor === 'blue' ? 'red' : 'blue'
+    }));
+  }
 render() {
   const { collapsed } = this.state;
   return (
     <div className="content-box">
     <Layout>
     <Header className="header">
-      <HeaderMoudle headerData={this.state.headerData}></HeaderMoudle>
-      <div className="change-theme" />
+      <HeaderMoudle headerData={this.state.headerData} changeTheme={this.changeTheme.bind(this)}></HeaderMoudle>
     </Header>
     <Layout>
       <Sider width={256} collapsible collapsed={collapsed} onCollapse={this.onCollapse} className="site-layout-background">

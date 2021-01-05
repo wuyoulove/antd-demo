@@ -1,5 +1,5 @@
 
-import { Menu } from 'antd';
+import { Menu, Button } from 'antd';
 
 const HeaderMoudle = (props) => {
   const { headerData } = props 
@@ -10,6 +10,9 @@ const HeaderMoudle = (props) => {
             <Menu.Item key={index}>{item}</Menu.Item>
           ))
         }
+        <div className="change-theme">
+          <Button onClick={props.changeTheme}>更改主题</Button>
+        </div>
       </Menu>
   )
 }

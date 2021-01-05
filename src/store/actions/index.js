@@ -1,6 +1,7 @@
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const UPDATE_CART = 'UPDATE_CART';
 export const DELETE_FROM_CART = 'DELETE_FROM_CART';
+export const CHANGE_THEME='change_theme';
 
 export function addToCart(product, quantity, unitCost) {
   return {
@@ -18,10 +19,17 @@ export function updateCart(product, quantity, unitCost) {
     }
   }
 }
-
 export function deleteFromCart(product) {
   return {
     type: DELETE_FROM_CART,
+    payload: {
+      product
+    }
+  }
+}
+export function changeTheme(product) {
+  return {
+    type: CHANGE_THEME,
     payload: {
       product
     }

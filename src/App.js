@@ -1,17 +1,17 @@
 
 import routes from './route.js'
-// import './assets/css/red.less';
-// import './assets/css/blue.less';
 import './assets/css/index.less'
+import store from '@/store/index.js'
 import {
     BrowserRouter as Router,
     Route,
     Switch,
   } from 'react-router-dom';
-
+  const state = {
+    themeColor:store.getState().themeColor,
+  }
 function App() {
-  let themeColor = 'blue'
-  require([`./assets/css/${themeColor}.less`], function(list){});
+  require([`./assets/css/${state.themeColor}.less`], function(list){});
   return (
     <Router>
         <Switch>
